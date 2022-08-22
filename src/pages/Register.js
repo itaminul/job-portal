@@ -24,8 +24,9 @@ function Register() {
         setValues({ ...values, [e.target.name]: e.target.values})
     }
 
-    const submitHandler = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
+        console.log(e.target)
         const { fullname, email, password, isMember } = values;
 
         if(!email || !password || (!isMember && !fullname)) {
@@ -40,7 +41,7 @@ function Register() {
   return (
     <div class="bg-grey-lighter min-h-screen flex flex-col">
     <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-        <form onSubmit={submitHandler}>
+        <form onSubmit={onSubmit}>
         <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
             <h1 class="mb-8 text-3xl text-center">
                 {values.isMember ? "Login": "Register"}
@@ -51,7 +52,7 @@ function Register() {
                 type="text" 
                 name="fullname"
                 values={values.fullname}
-                handleChange={handleChange}
+                onChange={handleChange}
                 />
              )}
 
@@ -59,18 +60,18 @@ function Register() {
             type="emaily" 
             name="email"
             values={values.email}
-            handleChange={handleChange}
+            onChange={handleChange}
              />
              <FormRow 
             type="password" 
             name="password"
             values={values.password}
-            handleChange={handleChange}
+            onChange={handleChange}
              />
           
             <div>
 
-            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
             </div>
 
             <div>
